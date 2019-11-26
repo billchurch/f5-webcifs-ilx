@@ -1,4 +1,9 @@
 {
+  "name": "webcifs",
+  "version": "0.1.0-0",
+  "ignore": [
+    ".gitignore"
+  ],
   "BIG-IP-comments": [
     "package.json is the standard npm (www.npmjs.org) package definition file.",
     "For more information please see www.npmjs.org/doc/package.json.html. "
@@ -7,12 +12,12 @@
   "private": true,
   "repository": {},
   "engines": {
-    "node": "0.11.12"
+    "node": ">= 6"
   },
   "dependencies": {
+    "basic-auth": "^2.0.1",
     "express": "^4.15.3",
     "express-session": "^1.15.3",
-    "f5-nodejs": "0.0.3",
     "multer": "^1.3.0",
     "querystring": "^0.2.0",
     "smb2c": "^0.7.5"

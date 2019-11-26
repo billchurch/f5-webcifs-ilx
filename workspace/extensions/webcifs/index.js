@@ -9,21 +9,25 @@ var upload = multer({ storage: storage });
 var url_ops = require('url');
 var qs = require('querystring');
 var session = require('express-session');
-var util = require('util');
+
+var session = require('express-session')({
+    secret: 'ilx-secret-phrase',
+    name: 'ilx_webcifs',
+    resave: true,
+    saveUninitialized: true
+  })
+
+var myutil = require('./util')
+// var util = require('util');
 //var bodyParser = require('body-parser');
-
-
-app.use(session({
-  secret: 'ilx-secret-phrase',
-  name: 'ilx_webcifs',
-  resave: true,
-  saveUninitialized: true
-}));
-
-
 
 var plugin = new f5.ILXPlugin();
 plugin.startHttpServer(app);
+
+
+app.use(session)
+// app.use(myutil.basicAuth)
+
 //console.log("Server Started.");
 
 var sess;
